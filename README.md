@@ -3,7 +3,7 @@ GUI for yt-dl using ffmpeg
 
 Allows the user to download video & audio from youtube links and specify a portion of the video they want to download.
 
-To run, download the zip file `downloader.zip` and extract then run `downloader.exe`. Make sure the exe file stays in the same directory as the other files.
+To run, go to the `output` foldeer, then download the zip file `downloader.zip` and extract then run `downloader.exe`. Make sure the exe file stays in the same directory as the other files.
 
 Or if you have python's compiler, clone the repo and run `py downloader.py`.
 
