@@ -2,10 +2,11 @@
 # Jacob Rogers
 # 12-4-21
 
+from ast import arg
 from tkinter import *
 import tkinter as tk
 import os
-from os import path
+from os import path, stat
 from tkinter.font import BOLD
 import threading
 
@@ -54,6 +55,24 @@ def toggle_time_mode():
         time_start_text.insert("1.0","00:00:00")
         time_end_text.insert("1.0","00:00:00")
 
+def loading(state):
+    if(state == True):
+        urlText.delete("1.0","end")
+        urlText.insert("1.0","LOADING, please wait...")
+        time_mode_button["state"] = DISABLED
+        process_audio["state"] = DISABLED
+        process_video["state"] = DISABLED
+        urlText.config(state=DISABLED)
+        urlText.config(bg='grey')
+    else:
+        urlText.delete("1.0","end")
+        time_mode_button["state"] = NORMAL
+        process_audio["state"] = NORMAL
+        process_video["state"] = NORMAL
+        urlText.config(state=NORMAL)
+        urlText.config(bg='white')
+        
+
 
 if __name__ == "__main__":
     
@@ -96,7 +115,7 @@ if __name__ == "__main__":
         text="Get Audio", 
         fg="Black",
         bg="light Blue", 
-        command= lambda :  runYTDL_audio( urlText.get("1.0","end-1c"), time_mode_button.cget('text'), time_start_text.get("1.0","end-1c"), time_end_text.get("1.0","end-1c"))
+        command= lambda :  runYTDL_audio(urlText.get("1.0","end-1c"), time_mode_button.cget('text'), time_start_text.get("1.0","end-1c"), time_end_text.get("1.0","end-1c"))
     )
 
     process_audio.grid(row=4, column=2)
@@ -105,7 +124,7 @@ if __name__ == "__main__":
         root, 
         text="Get Video", 
         fg="Black",bg="light Blue", 
-        command= lambda :  runYTDL_video( urlText.get("1.0","end-1c"), time_mode_button.cget('text'), time_start_text.get("1.0","end-1c"), time_end_text.get("1.0","end-1c"))
+        command= lambda :  runYTDL_video(urlText.get("1.0","end-1c"), time_mode_button.cget('text'), time_start_text.get("1.0","end-1c"), time_end_text.get("1.0","end-1c"))
     )
 
     process_video.grid(row=5,column=2,pady=5)
