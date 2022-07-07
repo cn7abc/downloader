@@ -1,4 +1,4 @@
-# downloader
+# downloader (Work in progress)
 GUI for yt-dl using ffmpeg
 
 Allows the user to download video & audio from youtube links and specify a portion of the video they want to download.
